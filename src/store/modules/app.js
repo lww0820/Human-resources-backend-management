@@ -18,7 +18,7 @@ const mutations = {
       Cookies.set('sidebarStatus', 0)
     }
   },
-  CLOSE_SIDEBAR: (state, withoutAnimation) => {
+  CLOSE_SIDEBAR: (state, withoutAnimation) => { 
     Cookies.set('sidebarStatus', 0)
     state.sidebar.opened = false
     state.sidebar.withoutAnimation = withoutAnimation

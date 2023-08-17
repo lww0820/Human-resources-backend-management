@@ -28,11 +28,12 @@ export default {
   components: { SidebarItem, Logo },
   computed: {
     ...mapGetters([
-      'sidebar'
+      'sidebar',
+      'routes'
     ]),
-    routes() {
-      return this.$router.options.routes
-    },
+    // routes() {
+    //   return this.$router.options.routes
+    // },
     activeMenu() {
       const route = this.$route
       const { meta, path } = route
@@ -43,6 +44,7 @@ export default {
       return path
     },
     showLogo() {
+      // console.log(this.$store.state);
       return this.$store.state.settings.sidebarLogo
     },
     variables() {

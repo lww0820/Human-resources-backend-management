@@ -28,10 +28,21 @@ if (process.env.NODE_ENV === 'production') {
   mockXHR()
 }
 
+Vue.directive('permission', {
+  inserted(el, binding) {
+    // console.log(el, binding.value);
+    const ponints = store.getters.userInfo.roles.points
+    console.log(ponints);
+    if (!ponints.includes(binding.value)) {
+      el.remove()
+    }
+  }
+})
+
 // set ElementUI lang to EN
-Vue.use(ElementUI, { locale })
+// Vue.use(ElementUI, { locale })
 // 如果想要中文版 element-ui，按如下方式声明
-// Vue.use(ElementUI)
+Vue.use(ElementUI)
 
 Vue.config.productionTip = false
 
